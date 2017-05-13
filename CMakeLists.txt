@@ -75,7 +75,6 @@ set(SAMPLE_RESOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/NotoMono-Regular.ttf
     ${CMAKE_CURRENT_SOURCE_DIR}/NotoSansSymbols-Regular.ttf
     ${CMAKE_CURRENT_SOURCE_DIR}/dash.wav
-    ${CMAKE_CURRENT_SOURCE_DIR}/dot.wav
 )
 
 add_executable(${SAMPLE_PROJECT} ${SAMPLE_SOURCES} ${SAMPLE_RESOURCES})
@@ -125,14 +124,14 @@ add_executable(${FUTURE_PROJECT} future.cpp ${SAMPLE_RESOURCES})
 
 target_compile_options(${FUTURE_PROJECT} PUBLIC ${SHARED_COMPILE_OPTIONS})
 target_compile_features(${FUTURE_PROJECT} PUBLIC ${SHARED_COMPILE_FEATURES})
-target_compile_definitions(${FUTURE_PROJECT} PUBLIC BOOST_THREAD_VERSION=4)
+target_compile_definitions(${FUTURE_PROJECT} PUBLIC BOOST_THREAD_VERSION=5)
 
 target_include_directories(${FUTURE_PROJECT} SYSTEM PUBLIC 
     ${Boost_INCLUDE_DIRS}
     ${range-v3_INCLUDE_DIR} 
     ${LIBOAUTH_INCLUDE_DIRS} 
-    ${CURL_INCLUDE_DIRS} 
-    ${JSON_INCLUDE_DIRS})
+    ${CURL_INCLUDE_DIRS}
+    ${jsoncpp_INCLUDE_DIR})
 
 target_link_libraries(${FUTURE_PROJECT} 
     ${Boost_LIBRARIES}
